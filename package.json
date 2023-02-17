@@ -1,0 +1,30 @@
+{
+  "name": "dep-package",
+  "version": "1.0.1",
+  "description": "Node.js module that provides detailed information about each deprecated package in a given npm project.",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pouyapanahandeh/check-deprecated-packages.git"
+  },
+  "keywords": [
+    "deprecated",
+    "packages"
+  ],
+  "author": "panahandehpooya@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pouyapanahandeh/check-deprecated-packages/issues"
+  },
+  "homepage": "https://github.com/pouyapanahandeh/check-deprecated-packages#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "execa": "^7.0.0",
+    "mocha": "^9.2.2",
+    "require": "^0.4.4",
+    "semver": "^7.3.8"
+  }
+}
