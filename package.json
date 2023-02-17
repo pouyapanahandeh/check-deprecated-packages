@@ -1,6 +1,6 @@
 {
   "name": "dep-package",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Node.js module that provides detailed information about each deprecated package in a given npm project.",
   "main": "main.js",
   "scripts": {
