@@ -1,30 +1,23 @@
 {
   "name": "dep-package",
-  "version": "2.0.0",
-  "description": "Node.js module that provides detailed information about each deprecated package in a given npm project.",
-  "main": "main.js",
+  "version": "1.0.0",
+  "description": "Node.js package that checks for outdated dependencies, security vulnerabilities, and deprecated packages in javascript project. ",
+  "main": "check.js",
   "scripts": {
-    "test": "mocha"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pouyapanahandeh/check-deprecated-packages.git"
+  "bin": {
+    "check-my-project": "./check.js",
   },
-  "keywords": [
-    "deprecated",
-    "packages"
-  ],
-  "author": "panahandehpooya@gmail.com",
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=12"
+  }
+  "author": "panahanadehpooya@gmail.com",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pouyapanahandeh/check-deprecated-packages/issues"
-  },
-  "homepage": "https://github.com/pouyapanahandeh/check-deprecated-packages#readme",
-  "dependencies": {
-    "chalk": "^5.2.0",
-    "execa": "^7.0.0",
-    "mocha": "^9.2.2",
-    "require": "^0.4.4",
-    "semver": "^7.3.8"
+  "devDependencies": {
+    "depcheck": "^1.4.3",
+    "npm-check-updates": "^16.7.5",
+    "snyk": "^1.1105.0"
   }
 }
