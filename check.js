@@ -3,19 +3,27 @@ const snyk = require('snyk');
 const depcheck = require('depcheck');
 const { Command } = require('commander');
 
+// Checks for outdated dependencies in the project
 function checkOutdatedDependencies() {
   return ncu.run({
     packageFile: './package.json',
     silent: true,
     jsonUpgraded: true,
-    filter: '/^(?!@types)/', // ignore updating @types packages
+    filter: '/^(?:(?!@types).)*$/', // ignore updating @types packages
   });
 }
 
-function checkSecurityVulnerabilities() {
-  return snyk.test();
+// Checks for security vulnerabilities in the project
+async function checkSecurityVulnerabilities() {
+  try {
+    return await snyk.test();
+  } catch (error) {
+    console.error('Error checking security vulnerabilities:', error);
+    throw error;
+  }
 }
 
+// Checks for deprecated packages in the project
 function checkDeprecatedPackages() {
   const options = {
     ignoreDirs: ['node_modules'],
@@ -59,19 +67,19 @@ async function runChecks() {
   if (program.outdated) {
     const upgraded = await checkOutdatedDependencies();
     console.log('The following dependencies can be updated:');
-    console.log(upgraded);
+    console.log(JSON.stringify(upgraded, null, 2));
   }
 
   if (program.security) {
     const { vulnerabilities } = await checkSecurityVulnerabilities();
     console.log(`Found ${vulnerabilities.length} security vulnerabilities:`);
-    console.log(vulnerabilities);
+    console.log(JSON.stringify(vulnerabilities, null, 2));
   }
 
   if (program.deprecated) {
     const dependencies = await checkDeprecatedPackages();
     console.log('The following deprecated packages are being used:');
-    console.log(dependencies);
+    console.log(JSON.stringify(dependencies, null, 2));
   }
 }
 

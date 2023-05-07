@@ -7,17 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "check-my-project": "./check.js",
+    "check-my-project": "./check.js"
   },
   "preferGlobal": true,
   "engines": {
     "node": ">=12"
-  }
+  },
   "author": "panahanadehpooya@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "depcheck": "^1.4.3",
     "npm-check-updates": "^16.7.5",
     "snyk": "^1.1105.0"
+  },
+  "dependencies": {
+    "commander": "^10.0.0"
   }
 }
